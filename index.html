@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>فريق عزيز انت يا وطني </title>
+  <title>فريق عزيز انت يا وطني</title>
   <meta name="description" content="الصفحة التعريفية لفريق عزيز انت يا وطني التطوعي: من نحن، رؤيتنا، مجالات عملنا، وطرق التواصل." />
   <style>
     :root{
@@ -15,101 +15,157 @@
       --card:#ffffff;
       --ring:rgba(11,107,111,.2);
       --radius:18px;
+      --max:1100px;
     }
+
+    /* أساسيات */
     *,*::before,*::after{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:"Tajawal",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans Arabic","Noto Sans",Arial;color:var(--ink);background:var(--bg)}
+    html,body{margin:0;height:100%}
+    body{
+      font-family:"Tajawal",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans Arabic","Noto Sans",Arial;
+      color:var(--ink);background:var(--bg);line-height:1.6;
+      -webkit-text-size-adjust:100%;
+    }
+    img{max-width:100%;height:auto;display:block}
     a{color:var(--primary);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid #e2e8f0;z-index:50}
-    nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+    .container{max-width:var(--max);margin-inline:auto;padding-inline:20px}
+
+    /* وصول */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    :focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+
+    /* ترويس */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(180%) blur(12px);
+      border-bottom:1px solid #e2e8f0
+    }
+    nav{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px
+    }
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{width:48px;height:48px;border-radius:50%;box-shadow:0 6px 12px rgba(0,0,0,.2);object-fit:cover}
-    .brand-title{font-weight:800;letter-spacing:.2px}
+    .brand-title{font-weight:800;letter-spacing:.2px;font-size:clamp(18px,2.8vw,22px)}
     .nav-links{display:flex;gap:18px;align-items:center}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid transparent;background:var(--primary);color:white;font-weight:600;box-shadow:0 8px 24px rgba(11,107,111,.25);transition:.2s}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(11,107,111,.30)}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:12px 18px;border-radius:999px;border:1px solid transparent;
+      background:var(--primary);color:white;font-weight:700;
+      box-shadow:0 8px 24px rgba(11,107,111,.25);transition:.2s;touch-action:manipulation
+    }
+    .btn:hover{transform:translateY(-1px)}
     .btn-outline{background:transparent;color:var(--primary);border-color:var(--primary)}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#ecfeff;color:#0b6b6f;border:1px solid #cffafe;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.85rem}
 
-    .hero{position:relative;padding:72px 0 48px;background:radial-gradient(80% 80% at 10% 10%, #d1fae5 0%, rgba(209,250,229,0) 60%), radial-gradient(70% 80% at 100% 0%, #e0f2fe 0%, rgba(224,242,254,0) 60%)}
+    /* قائمة جوال (checkbox hack) */
+    #menu-toggle{display:none}
+    .hamburger{
+      display:none;inline-size:44px;block-size:44px;place-items:center;
+      border-radius:12px;border:1px solid #dbe3ee;background:#fff;cursor:pointer
+    }
+    .hamburger span{display:block;width:20px;border-top:2px solid #0b6b6f;position:relative}
+    .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;right:0;border-top:2px solid #0b6b6f}
+    .hamburger span:before{top:-6px}.hamburger span:after{top:6px}
+
+    @media (max-width: 880px){
+      .hamburger{display:grid}
+      .nav-links{
+        position:fixed;inset-inline:0;top:64px;background:#fff;border-top:1px solid #e2e8f0;
+        display:grid;gap:12px;padding:14px 20px;transform:translateY(-120%);transition:.25s
+      }
+      #menu-toggle:checked ~ .nav-links{transform:translateY(0)}
+    }
+
+    /* البطل */
+    .hero{
+      position:relative;padding:72px 0 48px;
+      background:radial-gradient(80% 80% at 10% 10%, #d1fae5 0%, rgba(209,250,229,0) 60%), radial-gradient(70% 80% at 100% 0%, #e0f2fe 0%, rgba(224,242,254,0) 60%)
+    }
     .hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
-    .tag{display:inline-flex;align-items:center;gap:8px;background:#ecfeff;color:#0b6b6f;border:1px solid #cffafe;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.85rem}
-    h1{font-size:clamp(28px, 5vw, 46px);line-height:1.15;margin:14px 0}
-    .lead{font-size:1.075rem;color:var(--muted);max-width:62ch}
+    h1{font-size:clamp(28px, 5vw, 46px);line-height:1.2;margin:10px 0}
+    .lead{font-size:clamp(15px,1.6vw,17px);color:var(--muted);max-width:62ch}
 
-    .card{background:var(--card);border:1px solid #e2e8f0;border-radius:var(--radius);padding:22px;box-shadow:0 8px 30px rgba(2,6,23,.04)}
+    .card{
+      background:var(--card);border:1px solid #e2e8f0;border-radius:var(--radius);
+      padding:22px;box-shadow:0 8px 30px rgba(2,6,23,.04)
+    }
     section{padding:54px 0}
     h2{font-size:clamp(22px, 3.5vw, 34px);margin:0 0 8px}
     .sub{color:var(--muted);margin:0 0 22px}
 
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    /* شبكات متجاوبة */
+    .features,.programs{display:grid;gap:16px}
+    .features{grid-template-columns:repeat(3,1fr)}
+    .programs{grid-template-columns:repeat(3,1fr)}
     .feat{display:grid;gap:10px}
     .icon{width:44px;height:44px;border-radius:12px;background:#f1f5f9;display:grid;place-items:center}
     .icon svg{width:22px;height:22px;fill:var(--primary)}
-
-    .programs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .programs .card{display:grid;gap:12px}
-
-    /* شريط الصور */
-    .gallery-wrap{
-      overflow:hidden;
-      border-radius:var(--radius);
-      border:1px solid #e2e8f0;
-      background:white;
-      width:100vw;
-      margin-inline:calc(50% - 50vw);
-    }
-    .gallery-track{
-      display:inline-flex;
-      gap:12px;
-      align-items:center;
-      will-change:transform;
-      transform:translateX(0);
-      animation:none;
-      backface-visibility:hidden;
-    }
-    .gallery-track img{
-      height:150px;
-      width:auto;
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,.08);
-      object-fit:cover;
-      flex:0 0 auto;
-    }
-
-    .manager{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center}
-    .manager img{width:120px;height:120px;border-radius:16px;object-fit:cover;border:1px solid #e2e8f0}
-
-    footer{padding:28px 0;border-top:1px solid #e2e8f0;background:white}
-    .foot{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}
-
-    body{overflow-x:hidden;}
-
-    /* للأرقام LTR عند الحاجة */
-    .ltr{direction:ltr;unicode-bidi:isolate;white-space:nowrap;text-align:left;}
-
-    @media (max-width: 900px){
-      .features,.programs{grid-template-columns:1fr 1fr}
+    @media (max-width: 1024px){
+      .features,.programs{grid-template-columns:repeat(2,1fr)}
     }
     @media (max-width: 560px){
       .features,.programs{grid-template-columns:1fr}
-      .manager{grid-template-columns:1fr}
+    }
+
+    /* شريط الصور — عرض ممتد بكامل الشاشة بسلوك آمن */
+    .gallery-wrap{
+      overflow:hidden;border-radius:var(--radius);border:1px solid #e2e8f0;background:white;
+      width:100vw;margin-inline:calc(50% - 50vw)
+    }
+    .gallery-track{
+      display:inline-flex;gap:12px;align-items:center;will-change:transform;
+      transform:translate3d(0,0,0);backface-visibility:hidden
+    }
+    .gallery-track img{
+      height:150px;width:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.08);
+      object-fit:cover;flex:0 0 auto
+    }
+
+    /* بطاقة المدير */
+    .manager{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center}
+    .manager img{width:120px;height:120px;border-radius:16px;object-fit:cover;border:1px solid #e2e8f0}
+    @media (max-width: 560px){.manager{grid-template-columns:1fr}}
+
+    /* تذييل */
+    footer{padding:28px 0;border-top:1px solid #e2e8f0;background:white}
+    .foot{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+
+    body{overflow-x:hidden}
+
+    /* للأرقام LTR عند الحاجة */
+    .ltr{direction:ltr;unicode-bidi:isolate;white-space:nowrap;text-align:left}
+
+    /* تقليل الحركة عند تفضيل المستخدم */
+    @media (prefers-reduced-motion: reduce){
+      .hamburger span,.hamburger span:before,.hamburger span:after{transition:none}
+      .nav-links{transition:none}
     }
   </style>
 </head>
 <body>
+  <a class="sr-only" href="#main">تخطي إلى المحتوى</a>
+
   <!-- رأس الصفحة -->
   <header>
     <div class="container">
       <nav>
         <div class="brand">
-          <img src="oop.png" alt="شعار فريق عزيز انت يا وطني" />
+          <img src="oop.png" alt="شعار فريق عزيز انت يا وطني" loading="lazy" decoding="async" />
           <div>
             <div class="brand-title">فريق عزيز انت يا وطني</div>
             <div class="sub">فريق تطوعي مجتمعي</div>
           </div>
         </div>
-        <div class="nav-links">
+
+        <!-- زر همبرغر للجوال -->
+        <label class="hamburger" for="menu-toggle" aria-label="فتح القائمة">
+          <span></span>
+        </label>
+        <input type="checkbox" id="menu-toggle" hidden>
+
+        <div class="nav-links" role="navigation" aria-label="روابط رئيسية">
           <a href="#about">من نحن</a>
           <a href="#definition">تعريف الفريق</a>
           <a href="#programs">مجالات التطوع</a>
@@ -119,140 +175,143 @@
     </div>
   </header>
 
-  <!-- البطل -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="tag">خدمة • تعاون • أثر</span>
-        <h1>نخدم مجتمعنا بقلبٍ مفتوح وعملٍ منظم.</h1>
-        <p class="lead">فريق <strong>عزيز انت يا وطني</strong> يجمع المتطوعين من مختلف الأعمار ليمدوا يد العون في التعليم، والبيئة، والصحة، والإغاثة. نؤمن أن الأثر الحقيقي يبدأ من مبادرات صغيرة مستمرة.</p>
-      </div>
-
-      <div class="card" aria-label="صور من نشاطات الفريق">
-        <div class="gallery-wrap">
-          <div class="gallery-track">
-            <img src="bankclose.jpg" alt="حملة تنظيف" />
-            <img src="we.jpg" alt="غرس الأشجار" />
-            <img src="old.jpg" alt="توزيع طرود" />
-            <img src="congrsh.jpg" alt="توعية صحية" />
-            <img src="all.jpg" alt="ورشة رقمية" />
-            <!-- مجموعة ثانية -->
-            <img src="link.jpg" alt="حملة تنظيف" />
-            <img src="ta.png" alt="غرس الأشجار" />
-            <img src="kid.jpg" alt="توزيع طرود" />
-            <img src="me.jpg" alt="توعية صحية" />
-            <img src="hi.jpg" alt="ورشة رقمية" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- من نحن -->
-  <section id="about">
-    <div class="container">
-      <h2>من نحن</h2>
-      <p class="sub">نحن مبادرة وطنية شبابية هدفها الاساسي هو تمكين شباب الوطن و جعلهم قادة مجتمعين على الصعيد الشخصي و الاجتماعي و السياسي.</p>
-      <div class="card manager">
-        <img src="hosam3.png" alt="صورة مدير الفريق" />
+  <main id="main">
+    <!-- البطل -->
+    <section class="hero">
+      <div class="container hero-grid">
         <div>
-          <h3 style="margin:0">مدير الفريق: <span id="managerName">حسام المصري</span></h3>
-          <p class="sub" style="margin:.35rem 0 0">قائد المبادرات، مسؤول التخطيط والتنسيق، والمتابعة على معايير السلامة والجودة.</p>
+          <span class="pill">خدمة • تعاون • أثر</span>
+          <h1>نخدم مجتمعنا بقلبٍ مفتوح وعملٍ منظم.</h1>
+          <p class="lead">فريق <strong>عزيز انت يا وطني</strong> يجمع المتطوعين من مختلف الأعمار ليمدوا يد العون في التعليم، والبيئة، والصحة، والإغاثة. نؤمن أن الأثر الحقيقي يبدأ من مبادرات صغيرة مستمرة.</p>
+        </div>
+
+        <div class="card" aria-label="صور من نشاطات الفريق">
+          <div class="gallery-wrap">
+            <div class="gallery-track">
+              <!-- استبدل المسارات بصورك؛ أضفت lazy/async للأداء -->
+              <img src="bankclose.jpg" alt="حملة تنظيف" loading="lazy" decoding="async" />
+              <img src="we.jpg" alt="غرس الأشجار" loading="lazy" decoding="async" />
+              <img src="old.jpg" alt="توزيع طرود" loading="lazy" decoding="async" />
+              <img src="congrsh.jpg" alt="توعية صحية" loading="lazy" decoding="async" />
+              <img src="all.jpg" alt="ورشة رقمية" loading="lazy" decoding="async" />
+              <!-- مجموعة ثانية -->
+              <img src="link.jpg" alt="حملة تنظيف" loading="lazy" decoding="async" />
+              <img src="ta.png" alt="غرس الأشجار" loading="lazy" decoding="async" />
+              <img src="kid.jpg" alt="توزيع طرود" loading="lazy" decoding="async" />
+              <img src="me.jpg" alt="توعية صحية" loading="lazy" decoding="async" />
+              <img src="hi.jpg" alt="ورشة رقمية" loading="lazy" decoding="async" />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- تعريف الفريق -->
-  <section id="definition">
-    <div class="container">
-      <h2>تعريف الفريق</h2>
-      <div class="card">
-        <p style="margin:0">فريق <strong>عزيز انت يا وطني</strong> كيانٌ تطوعي غير ربحي يهدف إلى تعزيز روح المواطنة الفاعلة من خلال مبادرات مستدامة في مجالات التعليم والبيئة والصحة والإغاثة. يعمل الفريق وفق مبادئ الشفافية، والعمل الجماعي، واحترام التنوع، ويقيس أثر مشاريعه بمؤشرات واضحة يمكن للجمهور الاطلاع عليها.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- مجالات العمل -->
-  <section id="programs">
-    <div class="container">
-      <h2>مجالات التطوع</h2>
-      <p class="sub">اختر المسار الذي ينسجم مع مهاراتك ووقتك.</p>
-      <div class="programs">
-        <article class="card">
-          <h3 style="margin:0">مبادرات مدرسية </h3>
-          <ul style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>مبادرات تفاعلية للاطفال</li>
-            <li>مبادرات تنظيف واعمال تجميلية للمدارس</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3 style="margin:0">مبادرات تنوعية</h3>
-          <ul style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>مبادرات تنظيم مسرحيات</li>
-            <li>ورشات تعليمية</li>
-            <li>مبادرات خيرية</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3 style="margin:0">مبادرات اغاثية و توعية بالصحة</h3>
-          <ul style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>مبادرات فرز ملابس</li>
-            <li>مبادرات خيرية</li>
-            <li>مبادرات توعوية بالصحة</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- تواصل -->
-  <section id="contact">
-    <div class="container">
-      <h2>التواصل</h2>
-      <p class="sub">يسعدنا تواصلكم للتعاون أو الاستفسار.</p>
-
-      <div class="card">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start">
+    <!-- من نحن -->
+    <section id="about">
+      <div class="container">
+        <h2>من نحن</h2>
+        <p class="sub">نحن مبادرة وطنية شبابية هدفها الأساسي تمكين شباب الوطن وجعلهم قادة مجتمعيين على الصعيد الشخصي والاجتماعي.</p>
+        <div class="card manager">
+          <img src="hosam3.png" alt="صورة مدير الفريق" loading="lazy" decoding="async" />
           <div>
-            <h3 style="margin:0 0 8px">البريد الإلكتروني</h3>
-            <p style="margin:0 0 12px">
-              <a href="mailto:azizyouwatani.team@gmail.com">azizyouwatani.team@gmail.com</a>
-            </p>
-
-            <h3 style="margin:0 0 8px">الهاتف</h3>
-            <p style="margin:0 0 12px">
-              <a class="ltr" dir="ltr" href="tel:+962799073507">&lrm;+962 7 9907 3507&lrm;</a>
-            </p>
-
-            <h3 style="margin:0 0 8px">موقعنا</h3>
-            <p class="sub" style="margin:0">الاردن-عمان-ملتقى ظلال للثقافة و الفنون</p>
-
-            <h3 style="margin:16px 0 8px">روابطنا</h3>
-            <ul style="margin:0 0 0 18px;color:var(--muted)">
-              <li><a href="https://www.instagram.com/aziz.ant.ya.watani/?hl=ar" rel="noopener">إنستغرام</a></li>
-              <li><a href="https://www.facebook.com/azezantyawatne/" rel="noopener">فيسبوك</a></li>
-              <li><a href="https://x.com/azezantyawatne?t=sknOWk8kq50wl-zmXUFDDA&s=09" rel="noopener">إكس</a></li>
-              <li><a href="https://www.nahno.org/ngo/%D9%81%D8%B1%D9%8A%D9%82-%D8%B9%D8%B2%D9%8A%D8%B2-%D8%A3%D9%86%D8%AA-%D9%8A%D8%A7%D9%88%D8%B7%D9%86%D9%8A-70921" rel="noopener">منصة نحن</a></li>
-            </ul>
-          </div>
-
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <h3 style="margin:0 0 8px">تواصل مباشر</h3>
-            <a class="btn" href="mailto:azizyouwatani.team@gmail.com" style="justify-content:center">إرسال بريد</a>
-            <a class="btn btn-outline" href="https://wa.me/962799073507" target="_blank" rel="noopener" style="justify-content:center">مراسلة واتساب</a>
+            <h3 style="margin:0">مدير الفريق: <span id="managerName">حسام المصري</span></h3>
+            <p class="sub" style="margin:.35rem 0 0">قائد المبادرات، مسؤول التخطيط والتنسيق، والمتابعة على معايير السلامة والجودة.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- تعريف الفريق -->
+    <section id="definition">
+      <div class="container">
+        <h2>تعريف الفريق</h2>
+        <div class="card">
+          <p style="margin:0">فريق <strong>عزيز انت يا وطني</strong> كيانٌ تطوعي غير ربحي يهدف إلى تعزيز روح المواطنة الفاعلة من خلال مبادرات مستدامة في مجالات التعليم والبيئة والصحة والإغاثة. يعمل الفريق وفق مبادئ الشفافية والعمل الجماعي واحترام التنوع، ويقيس أثر مشاريعه بمؤشرات واضحة يمكن للجمهور الاطلاع عليها.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- مجالات العمل -->
+    <section id="programs">
+      <div class="container">
+        <h2>مجالات التطوع</h2>
+        <p class="sub">اختر المسار الذي ينسجم مع مهاراتك ووقتك.</p>
+        <div class="programs">
+          <article class="card">
+            <h3 style="margin:0">مبادرات مدرسية</h3>
+            <ul style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>أنشطة تفاعلية للأطفال</li>
+              <li>تنظيف وأعمال تجميلية للمدارس</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 style="margin:0">مبادرات تنوعية</h3>
+            <ul style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>تنظيم مسرحيات</li>
+              <li>ورش تعليمية</li>
+              <li>مبادرات خيرية</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 style="margin:0">مبادرات إغاثية وتوعية صحية</h3>
+            <ul style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>فرز ملابس</li>
+              <li>حملات خيرية</li>
+              <li>جلسات توعوية صحية</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- تواصل -->
+    <section id="contact">
+      <div class="container">
+        <h2>التواصل</h2>
+        <p class="sub">يسعدنا تواصلكم للتعاون أو الاستفسار.</p>
+
+        <div class="card">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start">
+            <div>
+              <h3 style="margin:0 0 8px">البريد الإلكتروني</h3>
+              <p style="margin:0 0 12px">
+                <a href="mailto:azizyouwatani.team@gmail.com">azizyouwatani.team@gmail.com</a>
+              </p>
+
+              <h3 style="margin:0 0 8px">الهاتف</h3>
+              <p style="margin:0 0 12px">
+                <a class="ltr" dir="ltr" href="tel:+962799073507">&lrm;+962 7 9907 3507&lrm;</a>
+              </p>
+
+              <h3 style="margin:0 0 8px">العنوان</h3>
+              <p class="sub" style="margin:0">الأردن – عمّان – ملتقى ظلال للثقافة والفنون</p>
+
+              <h3 style="margin:16px 0 8px">روابطنا</h3>
+              <ul style="margin:0 0 0 18px;color:var(--muted)">
+                <li><a href="https://www.instagram.com/aziz.ant.ya.watani/?hl=ar" rel="noopener">إنستغرام</a></li>
+                <li><a href="https://www.facebook.com/azezantyawatne/" rel="noopener">فيسبوك</a></li>
+                <li><a href="https://x.com/azezantyawatne?t=sknOWk8kq50wl-zmXUFDDA&s=09" rel="noopener">إكس</a></li>
+                <li><a href="https://www.nahno.org/ngo/%D9%81%D8%B1%D9%8A%D9%82-%D8%B9%D8%B2%D9%8A%D8%B2-%D8%A3%D9%86%D8%AA-%D9%8A%D8%A7%D9%88%D8%B7%D9%86%D9%8A-70921" rel="noopener">منصة نحن</a></li>
+              </ul>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <h3 style="margin:0 0 8px">تواصل مباشر</h3>
+              <a class="btn" href="mailto:azizyouwatani.team@gmail.com" style="justify-content:center">إرسال بريد</a>
+              <a class="btn btn-outline" href="https://wa.me/962799073507" target="_blank" rel="noopener" style="justify-content:center">مراسلة واتساب</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container foot">
       <div style="display:flex;align-items:center;gap:10px">
         <img src="oop.png" alt="شعار مصغر" style="width:36px;height:36px;border-radius:50%"/>
         <div>
-          <strong>فريق عزيز يو يا وطني</strong><br/>
+          <strong>فريق عزيز انت يا وطني</strong><br/>
           <span class="sub">© <span id="year"></span> جميع الحقوق محفوظة.</span>
         </div>
       </div>
@@ -265,7 +324,7 @@
     const yearEl = document.getElementById('year');
     if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
-    // حركة لانهائية سلسة: عند خروج أول صورة من اليسار تُعاد لليمين فورًا
+    // حركة الشريط: تحريك مستمر مع إعادة تدوير العناصر بدون قفزات
     (function(){
       const wrap  = document.querySelector('.gallery-wrap');
       const track = document.querySelector('.gallery-track');
@@ -273,7 +332,6 @@
 
       const originals = Array.from(track.children);
 
-      // نضمن أن طول الشريط دائمًا كافٍ (نُكرّر الصور تلقائيًا عند الحاجة)
       function ensureLength(){
         const need = wrap.clientWidth * 2; // مرتان من عرض الوعاء تكفي لشريط دائري سلس
         while (track.scrollWidth < need){
@@ -282,7 +340,6 @@
       }
       ensureLength();
 
-      // قراءة gap من CSS
       function getGap(){
         const s = getComputedStyle(track);
         const g = s.gap || s.columnGap || '12px';
@@ -290,36 +347,45 @@
       }
       let gap = getGap();
 
-      // إعداد الحركة بزمن حقيقي (px/second) لتكون ثابتة على كل الشاشات
       let x = 0;                 // الإزاحة الحالية
-      let speed = 36;            // السرعة: بكسل/ثانية (عدّلها كما تريد)
+      let speed = 36;            // بكسل/ثانية
       let prev = performance.now();
+      let reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       function step(now){
+        if (reduceMotion) return; // أوقف الحركة عند تفضيل تقليل الحركة
         const dt = (now - prev) / 1000; // ثوانٍ
         prev = now;
 
-        x -= speed * dt; // تحريك يسارًا
+        x -= speed * dt;
 
         const first = track.children[0];
         if (first){
           const w = first.offsetWidth + gap;
-          // إذا خرجت أول صورة بالكامل، أعدها للنهاية واضبط الإزاحة بدون أي قفزة
           if (-x >= w){
             track.appendChild(first);
             x += w;
           }
         }
-
         track.style.transform = `translate3d(${x}px,0,0)`;
         requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
 
-      // عند تغيير المقاس: نحدّث الطول و gap
       window.addEventListener('resize', () => {
         ensureLength();
         gap = getGap();
+      });
+
+      // لو تغيّر تفضيل الحركة أثناء الاستخدام
+      window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', e=>{
+        reduceMotion = e.matches;
+        if (!reduceMotion){
+          prev = performance.now();
+          requestAnimationFrame(step);
+        } else {
+          track.style.transform = 'translate3d(0,0,0)';
+        }
       });
     })();
   </script>
