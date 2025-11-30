@@ -18,38 +18,161 @@
       --radius:18px;
     }
     *,*::before,*::after{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:"Tajawal",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans Arabic","Noto Sans",Arial;color:var(--ink);background:var(--bg)}
+    html,body{
+      margin:0;
+      height:100%;
+      font-family:"Tajawal",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans Arabic","Noto Sans",Arial;
+      color:var(--ink);
+      background:var(--bg)
+    }
     a{color:var(--primary);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid #e2e8f0;z-index:50}
-    nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{width:48px;height:48px;border-radius:50%;box-shadow:0 6px 12px rgba(0,0,0,.2);object-fit:cover}
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+    header{
+      position:sticky;
+      top:0;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(180%) blur(12px);
+      border-bottom:1px solid #e2e8f0;
+      z-index:50;
+    }
+
+    /* الهيدر */
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      height:64px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand img{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      box-shadow:0 6px 12px rgba(0,0,0,.2);
+      object-fit:cover;
+    }
     .brand-title{font-weight:800;letter-spacing:.2px}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid transparent;background:var(--primary);color:white;font-weight:600;box-shadow:0 8px 24px rgba(11,107,111,.25);transition:.2s}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(11,107,111,.30)}
-    .btn-outline{background:transparent;color:var(--primary);border-color:var(--primary)}
+    .nav-links{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
 
-    .hero{position:relative;padding:72px 0 48px;background:radial-gradient(80% 80% at 10% 10%, #d1fae5 0%, rgba(209,250,229,0) 60%), radial-gradient(70% 80% at 100% 0%, #e0f2fe 0%, rgba(224,242,254,0) 60%)}
-    .hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
-    .tag{display:inline-flex;align-items:center;gap:8px;background:#ecfeff;color:#0b6b6f;border:1px solid #cffafe;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.85rem}
-    h1{font-size:clamp(28px, 5vw, 46px);line-height:1.15;margin:14px 0}
-    .lead{font-size:1.075rem;color:var(--muted);max-width:62ch}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid transparent;
+      background:var(--primary);
+      color:white;
+      font-weight:600;
+      box-shadow:0 8px 24px rgba(11,107,111,.25);
+      transition:.2s;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 12px 28px rgba(11,107,111,.30);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--primary);
+      border-color:var(--primary);
+    }
 
-    .card{background:var(--card);border:1px solid #e2e8f0;border-radius:var(--radius);padding:22px;box-shadow:0 8px 30px rgba(2,6,23,.04)}
+    .hero{
+      position:relative;
+      padding:72px 0 48px;
+      background:
+        radial-gradient(80% 80% at 10% 10%, #d1fae5 0%, rgba(209,250,229,0) 60%),
+        radial-gradient(70% 80% at 100% 0%, #e0f2fe 0%, rgba(224,242,254,0) 60%);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+      align-items:center;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#ecfeff;
+      color:#0b6b6f;
+      border:1px solid #cffafe;
+      border-radius:999px;
+      padding:6px 12px;
+      font-weight:700;
+      font-size:.85rem;
+    }
+    h1{
+      font-size:clamp(28px, 5vw, 46px);
+      line-height:1.15;
+      margin:14px 0;
+    }
+    .lead{
+      font-size:1.075rem;
+      color:var(--muted);
+      max-width:62ch;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid #e2e8f0;
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 8px 30px rgba(2,6,23,.04);
+    }
     section{padding:54px 0}
-    h2{font-size:clamp(22px, 3.5vw, 34px);margin:0 0 8px}
-    .sub{color:var(--muted);margin:0 0 22px}
+    h2{
+      font-size:clamp(22px, 3.5vw, 34px);
+      margin:0 0 8px;
+    }
+    .sub{
+      color:var(--muted);
+      margin:0 0 22px;
+    }
 
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
     .feat{display:grid;gap:10px}
-    .icon{width:44px;height:44px;border-radius:12px;background:#f1f5f9;display:grid;place-items:center}
-    .icon svg{width:22px;height:22px;fill:var(--primary)}
+    .icon{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      background:#f1f5f9;
+      display:grid;
+      place-items:center;
+    }
+    .icon svg{
+      width:22px;
+      height:22px;
+      fill:var(--primary);
+    }
 
-    .programs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .programs .card{display:grid;gap:12px}
+    .programs{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .programs .card{
+      display:grid;
+      gap:12px;
+    }
 
     /* شريط الصور */
     .gallery-wrap{
@@ -78,220 +201,220 @@
       flex:0 0 auto;
     }
 
-    .manager{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center}
-    .manager img{width:120px;height:120px;border-radius:16px;object-fit:cover;border:1px solid #e2e8f0}
+    .manager{
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:16px;
+      align-items:center;
+    }
+    .manager img{
+      width:120px;
+      height:120px;
+      border-radius:16px;
+      object-fit:cover;
+      border:1px solid #e2e8f0;
+    }
 
-    footer{padding:28px 0;border-top:1px solid #e2e8f0;background:white}
-    .foot{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    footer{
+      padding:28px 0;
+      border-top:1px solid #e2e8f0;
+      background:white;
+    }
+    .foot{
+      display:flex;
+      gap:16px;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
     body{overflow-x:hidden;}
 
     /* للأرقام LTR عند الحاجة */
-    .ltr{direction:ltr;unicode-bidi:isolate;white-space:nowrap;text-align:left;}
-
-    @media (max-width: 900px){
-      .features,.programs{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 560px){
-      .features,.programs{grid-template-columns:1fr}
-      .manager{grid-template-columns:1fr}
+    .ltr{
+      direction:ltr;
+      unicode-bidi:isolate;
+      white-space:nowrap;
+      text-align:left;
     }
 
     /* =========================
-   تحسينات عامة للهاتف و iPad
-   ضع هذا القسم بعد CSS الحالي
-   ========================= */
+       تحسينات عامة للهاتف و iPad
+       ========================= */
 
-/* هوامش آمنة لأجهزة iOS ذات النتوء */
-header .container,
-footer .container,
-.container {
-  padding-inline: max(20px, env(safe-area-inset-left), env(safe-area-inset-right));
-}
+    /* هوامش آمنة لأجهزة iOS ذات النتوء */
+    header .container,
+    footer .container,
+    .container {
+      padding-inline: max(20px, env(safe-area-inset-left), env(safe-area-inset-right));
+    }
 
-/* iPad أفقي وما دون (<= 1024px) */
-@media (max-width: 1024px) {
-  nav { height: 60px }
-  .brand img { width: 42px; height: 42px }
-  .brand-title { font-size: 1.05rem }
-  .nav-links { gap: 12px }
+    /* iPad أفقي وما دون (<= 1024px) */
+    @media (max-width: 1024px) {
+      nav { height: 60px }
+      .brand img { width: 42px; height: 42px }
+      .brand-title { font-size: 1.05rem }
+      .nav-links { gap: 12px }
 
-  .hero { padding: 64px 0 40px }
-  .lead { font-size: 1.02rem }
+      .hero { padding: 64px 0 40px }
+      .lead { font-size: 1.02rem }
 
-  /* شبكات الأقسام */
-  .features,
-  .programs { grid-template-columns: repeat(2, 1fr) }
+      .features,
+      .programs { grid-template-columns: repeat(2, 1fr) }
 
-  /* شريط الصور */
-  .gallery-track img { height: 140px }
-}
+      .gallery-track img { height: 140px }
+    }
 
-/* iPad عمودي (<= 834px) */
-@media (max-width: 834px) {
-  nav { gap: 10px }
-  .nav-links { flex-wrap: wrap; justify-content: flex-end }
-  .btn, .btn.btn-outline { padding: 9px 14px; font-size: .95rem }
+    /* iPad عمودي (<= 834px) */
+    @media (max-width: 834px) {
+      nav { gap: 10px }
+      .nav-links { flex-wrap: wrap; justify-content: flex-end }
+      .btn, .btn.btn-outline { padding: 9px 14px; font-size: .95rem }
 
-  .hero-grid { gap: 22px }
+      .hero-grid { gap: 22px }
 
-  /* أعمدة إلى 2 */
-  .features,
-  .programs { grid-template-columns: 1fr 1fr }
+      .features,
+      .programs { grid-template-columns: 1fr 1fr }
 
-  .manager { grid-template-columns: 100px 1fr }
-  .manager img { width: 100px; height: 100px }
+      .manager { grid-template-columns: 100px 1fr }
+      .manager img { width: 100px; height: 100px }
 
-  .gallery-track img { height: 128px }
-}
+      .gallery-track img { height: 128px }
+    }
 
-/* هواتف كبيرة (<= 640px) */
-@media (max-width: 640px) {
-  header { backdrop-filter: saturate(160%) blur(10px) }
-  nav { height: 56px }
-  .brand { gap: 10px }
-  .brand img { width: 38px; height: 38px }
-  .brand-title { font-size: 1rem }
-  .sub { font-size: .95rem }
+    /* هواتف كبيرة (<= 640px) */
+    @media (max-width: 640px) {
+      header { backdrop-filter: saturate(160%) blur(10px) }
+      nav { height: 56px }
+      .brand { gap: 10px }
+      .brand img { width: 38px; height: 38px }
+      .brand-title { font-size: 1rem }
+      .sub { font-size: .95rem }
 
-  /* ترتيب الروابط تحت الشعار تلقائياً عند ضيق العرض */
-  .nav-links {
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  .nav-links a { padding: 6px 0 }
+      .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .nav-links a { padding: 6px 0 }
 
-  /* بطل الصفحة */
-  .hero { padding: 48px 0 32px }
-  h1 { font-size: clamp(24px, 6vw, 34px) }
-  .lead { font-size: 1rem }
+      .hero { padding: 48px 0 32px }
+      h1 { font-size: clamp(24px, 6vw, 34px) }
+      .lead { font-size: 1rem }
 
-  /* شبكة واحدة عمود */
-  .features,
-  .programs { grid-template-columns: 1fr }
+      .features,
+      .programs { grid-template-columns: 1fr }
 
-  /* كرت المدير */
-  .manager { grid-template-columns: 1fr; text-align: center }
-  .manager img { margin-inline: auto }
+      .manager { grid-template-columns: 1fr; text-align: center }
+      .manager img { margin-inline: auto }
 
-  /* تواصل: عمودين → عمود واحد */
-  #contact .card > div { grid-template-columns: 1fr !important }
+      #contact .card > div { grid-template-columns: 1fr !important }
 
-  /* شريط الصور: أصغر ارتفاع وصور أقصر */
-  .gallery-wrap { border-radius: 14px }
-  .gallery-track { gap: 10px }
-  .gallery-track img { height: 110px; border-radius: 10px }
+      .gallery-wrap { border-radius: 14px }
+      .gallery-track { gap: 10px }
+      .gallery-track img { height: 110px; border-radius: 10px }
 
-  /* الأزرار أصغر قليلاً */
-  .btn, .btn.btn-outline {
-    padding: 9px 14px;
-    font-size: .95rem;
-    box-shadow: 0 6px 18px rgba(11,107,111,.22);
-  }
+      .btn, .btn.btn-outline {
+        padding: 9px 14px;
+        font-size: .95rem;
+        box-shadow: 0 6px 18px rgba(11,107,111,.22);
+      }
 
-  /* حاوية أوسع داخلياً على الموبايل */
-  .container { padding-inline: 16px }
-}
+      .container { padding-inline: 16px }
+    }
 
-/* هواتف صغيرة جداً (<= 400px) */
-@media (max-width: 400px) {
-  nav { height: 52px }
-  .brand img { width: 34px; height: 34px }
-  .brand-title { font-size: .95rem }
-  .sub { font-size: .9rem }
+    /* هواتف صغيرة جداً (<= 400px) */
+    @media (max-width: 400px) {
+      nav { height: 52px }
+      .brand img { width: 34px; height: 34px }
+      .brand-title { font-size: .95rem }
+      .sub { font-size: .9rem }
 
-  h1 { font-size: clamp(22px, 7vw, 30px) }
-  .lead { font-size: .95rem }
+      h1 { font-size: clamp(22px, 7vw, 30px) }
+      .lead { font-size: .95rem }
 
-  .gallery-track { gap: 8px }
-  .gallery-track img { height: 96px; border-radius: 9px }
+      .gallery-track { gap: 8px }
+      .gallery-track img { height: 96px; border-radius: 9px }
 
-  .btn, .btn.btn-outline { padding: 8px 12px; font-size: .9rem }
-}
+      .btn, .btn.btn-outline { padding: 8px 12px; font-size: .9rem }
+    }
 
-/* تحسين إمكانية اللمس على الشاشات اللمسية */
-@media (hover: none) {
-  a, .btn { -webkit-tap-highlight-color: rgba(11,107,111,.15) }
-  .btn:hover { transform: none } /* منع قفزات التحويم على اللمس */
-}
+    /* تحسين إمكانية اللمس على الشاشات اللمسية */
+    @media (hover: none) {
+      a, .btn { -webkit-tap-highlight-color: rgba(11,107,111,.15) }
+      .btn:hover { transform: none }
+    }
 
-/* ============================
-   هيدر بسطر واحد على كل المقاسات
-   (بدون تغيير الـ HTML)
-   ============================ */
+    /* ============================
+       هيدر بسطر واحد على كل المقاسات
+       (مع تمرير أفقي للروابط عند الحاجة)
+       ============================ */
 
-/* قاعدة صيانة عامة */
-header { white-space: nowrap }
+    header { white-space: nowrap }
 
-/* هيكل سطر واحد صلب */
-nav{
-  display: grid;
-  grid-template-columns: auto 1fr; /* الشعار | الروابط تتمدّد */
-  align-items: center;
-  gap: 12px;
-  min-width: 0; /* مهم لمنع تمدد زائد */
-}
+    nav{
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
 
-/* الشعار يبقى ثابت الحجم النسبي */
-.brand{
-  min-width: 0;
-  flex-shrink: 0;
-}
+    .brand{
+      min-width: 0;
+      flex-shrink: 0;
+    }
 
-/* الروابط تتمدّد وتمسك السطر كله يمين */
-.nav-links{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 18px;
-  min-width: 0;
-  overflow-x: auto;           /* يسمح بالتمرير إذا ضاق المكان */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;      /* إخفاء الشريط (فايرفوكس) */
-}
-.nav-links::-webkit-scrollbar{ display:none } /* إخفاء الشريط (كروم/سفاري) */
+    .nav-links{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex-wrap: nowrap;
+    }
+    .nav-links::-webkit-scrollbar{ display:none }
 
-/* منع النزول تحت بعض */
-nav, .nav-links { flex-wrap: nowrap }
+    .nav-links a,
+    .nav-links .btn{
+      white-space: nowrap;
+    }
 
-/* الروابط والأزرار لا تتكسر لسطرين */
-.nav-links a,
-.nav-links .btn{
-  white-space: nowrap;
-}
+    /* تقليل الأحجام تدريجياً للهيدر */
+    @media (max-width: 1024px){
+      nav { gap: 10px }
+      .brand img{ width: 42px; height: 42px }
+      .brand-title{ font-size: 1rem }
+      .nav-links{ gap: 14px }
+      .nav-links a, .nav-links .btn{
+        font-size: .95rem;
+        padding: 8px 12px;
+      }
+    }
 
-/* ——— نقطة 1024px: تقليل الأحجام تدريجيًا ——— */
-@media (max-width: 1024px){
-  nav { gap: 10px }
-  .brand img{ width: 42px; height: 42px }
-  .brand-title{ font-size: 1rem }
-  .nav-links{ gap: 14px }
-  .nav-links a, .nav-links .btn{
-    font-size: .95rem;
-    padding: 8px 12px;
-  }
-}
+    @media (max-width: 820px){
+      .brand img{ width: 38px; height: 38px }
+      .brand-title{ font-size: .95rem; letter-spacing: 0 }
+      .nav-links{ gap: 12px }
+      .nav-links a, .nav-links .btn{
+        font-size: .9rem;
+        padding: 7px 10px;
+      }
+    }
 
-/* ——— نقطة 820px (iPad عمودي وأغلب التابلت) ——— */
-@media (max-width: 820px){
-  .brand img{ width: 38px; height: 38px }
-  .brand-title{ font-size: .95rem; letter-spacing: 0 }
-  .sub{ font-size: .9rem } /* السطر تحت العنوان داخل الشعار */
-  .nav-links{ gap: 12px }
-  .nav-links a, .nav-links .btn{
-    font-size: .9rem;
-    padding: 7px 10px;
-  }
-}
-
-/* ——— نقطة 640px (هواتف كبيرة) ——— */
-@media (max-width: 640px){}
-  /* الحفاظ على سطر واحد: نقلّل كل شيء أكثر */
-  nav{ gap: 8px }
-  .brand img{ width: 34px; height: 34px }
-  .brand-t
-
+    @media (max-width: 640px){
+      nav{ gap: 8px }
+      .brand img{ width: 34px; height: 34px }
+      .brand-title{ font-size: .9rem }
+      .nav-links{ gap: 10px }
+      .nav-links a, .nav-links .btn{
+        font-size: .85rem;
+        padding: 6px 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -322,7 +445,11 @@ nav, .nav-links { flex-wrap: nowrap }
       <div>
         <span class="tag">خدمة • تعاون • أثر</span>
         <h1>نخدم مجتمعنا بقلبٍ مفتوح وعملٍ منظم.</h1>
-        <p class="lead">فريق <strong>عزيز انت يا وطني</strong> يجمع المتطوعين من مختلف الأعمار ليمدوا يد العون في التعليم، والبيئة، والصحة، والإغاثة. نؤمن أن الأثر الحقيقي يبدأ من مبادرات صغيرة مستمرة.</p>
+        <p class="lead">
+          فريق <strong>عزيز انت يا وطني</strong> يجمع المتطوعين من مختلف الأعمار
+          ليمدوا يد العون في التعليم، والبيئة، والصحة، والإغاثة.
+          نؤمن أن الأثر الحقيقي يبدأ من مبادرات صغيرة مستمرة.
+        </p>
       </div>
 
       <div class="card" aria-label="صور من نشاطات الفريق">
@@ -349,12 +476,23 @@ nav, .nav-links { flex-wrap: nowrap }
   <section id="about">
     <div class="container">
       <h2>من نحن</h2>
-      <p class="sub">نحن مجموعة من الشباب الطموحين نتواجد في كافة محافظات المملكة الأردنية الهاشمية و تأسس الفريق في عام 2022/2/2 ، ونعمل تحت مظلة حكومية ، كما نعمل على إدارة وتنفيذ الأعمال التطوعية بكافة المجالات التي تشمل: الإعلام المجتمعي/تنظيم الاحداث/ إدارة الفعاليات/التوعية/الإرشاد/المجال الرياضي/إطلاق المبادرات الشبابية التي تشمل(البيئة و الترفيهية و الثقافية و الخيرية و التدريبة) و العمل على تنفيذ برامج مشتركة مع مؤسسات عامة و خاصة.</p>
+      <p class="sub">
+        نحن مجموعة من الشباب الطموحين نتواجد في كافة محافظات المملكة الأردنية الهاشمية
+        و تأسس الفريق في عام 2022/2/2 ، ونعمل تحت مظلة حكومية ، كما نعمل على إدارة وتنفيذ
+        الأعمال التطوعية بكافة المجالات التي تشمل: الإعلام المجتمعي/تنظيم الاحداث/
+        إدارة الفعاليات/التوعية/الإرشاد/المجال الرياضي/إطلاق المبادرات الشبابية التي تشمل
+        (البيئة و الترفيهية و الثقافية و الخيرية و التدريبة) و العمل على تنفيذ برامج مشتركة
+        مع مؤسسات عامة و خاصة.
+      </p>
       <div class="card manager">
         <img src="hosam3.png" alt="صورة مدير الفريق" />
         <div>
-          <h3 style="margin:0">مدير الفريق: <span id="managerName">حسام المصري</span></h3>
-          <p class="sub" style="margin:.35rem 0 0">ناشط مجتمعي و مؤسس و مدير عزيز انت يا وطني و سفير لدى مؤسسة ولي العهد </p>
+          <h3 style="margin:0">
+            مدير الفريق: <span id="managerName">حسام المصري</span>
+          </h3>
+          <p class="sub" style="margin:.35rem 0 0">
+            ناشط مجتمعي و مؤسس و مدير عزيز انت يا وطني و سفير لدى مؤسسة ولي العهد
+          </p>
         </div>
       </div>
     </div>
@@ -365,7 +503,12 @@ nav, .nav-links { flex-wrap: nowrap }
     <div class="container">
       <h2>تعريف الفريق</h2>
       <div class="card">
-        <p style="margin:0">فريق <strong>عزيز انت يا وطني</strong> كيانٌ تطوعي غير ربحي يهدف إلى تعزيز روح المواطنة الفاعلة من خلال مبادرات مستدامة في مجالات التعليم والبيئة والصحة والإغاثة و العديد من المجالات يعمل الفريق وفق مبادئ الشفافية والعمل الجماعي واحترام التنوع ويقيس أثر مشاريعه بمؤشرات واضحة يمكن للجمهور الاطلاع عليها.</p>
+        <p style="margin:0">
+          فريق <strong>عزيز انت يا وطني</strong> كيانٌ تطوعي غير ربحي يهدف إلى تعزيز
+          روح المواطنة الفاعلة من خلال مبادرات مستدامة في مجالات التعليم والبيئة والصحة
+          والإغاثة و العديد من المجالات يعمل الفريق وفق مبادئ الشفافية والعمل الجماعي
+          واحترام التنوع ويقيس أثر مشاريعه بمؤشرات واضحة يمكن للجمهور الاطلاع عليها.
+        </p>
       </div>
     </div>
   </section>
@@ -423,7 +566,9 @@ nav, .nav-links { flex-wrap: nowrap }
             </p>
 
             <h3 style="margin:0 0 8px">موقعنا</h3>
-              <a href="https://maps.app.goo.gl/an7qQAhbqiCGnASa6?g_st=ai">الأردن-عمان-مقر عزيز انت يا وطني</a>
+            <a href="https://maps.app.goo.gl/an7qQAhbqiCGnASa6?g_st=ai">
+              الأردن-عمان-مقر عزيز انت يا وطني
+            </a>
 
             <h3 style="margin:16px 0 8px">روابطنا</h3>
             <ul style="margin:0 0 0 18px;color:var(--muted)">
@@ -462,7 +607,7 @@ nav, .nav-links { flex-wrap: nowrap }
     const yearEl = document.getElementById('year');
     if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
-    // حركة لانهائية سلسة: عند خروج أول صورة من اليسار تُعاد لليمين فورًا
+    // حركة شريط الصور
     (function(){
       const wrap  = document.querySelector('.gallery-wrap');
       const track = document.querySelector('.gallery-track');
@@ -470,16 +615,14 @@ nav, .nav-links { flex-wrap: nowrap }
 
       const originals = Array.from(track.children);
 
-      // نضمن أن طول الشريط دائمًا كافٍ (نُكرّر الصور تلقائيًا عند الحاجة)
       function ensureLength(){
-        const need = wrap.clientWidth * 2; // مرتان من عرض الوعاء تكفي لشريط دائري سلس
+        const need = wrap.clientWidth * 2;
         while (track.scrollWidth < need){
           originals.forEach(el => track.appendChild(el.cloneNode(true)));
         }
       }
       ensureLength();
 
-      // قراءة gap من CSS
       function getGap(){
         const s = getComputedStyle(track);
         const g = s.gap || s.columnGap || '12px';
@@ -487,21 +630,19 @@ nav, .nav-links { flex-wrap: nowrap }
       }
       let gap = getGap();
 
-      // إعداد الحركة بزمن حقيقي (px/second) لتكون ثابتة على كل الشاشات
-      let x = 0;                 // الإزاحة الحالية
-      let speed = 36;            // السرعة: بكسل/ثانية (عدّلها كما تريد)
+      let x = 0;
+      let speed = 36;
       let prev = performance.now();
 
       function step(now){
-        const dt = (now - prev) / 1000; // ثوانٍ
+        const dt = (now - prev) / 1000;
         prev = now;
 
-        x -= speed * dt; // تحريك يسارًا
+        x -= speed * dt;
 
         const first = track.children[0];
         if (first){
           const w = first.offsetWidth + gap;
-          // إذا خرجت أول صورة بالكامل، أعدها للنهاية واضبط الإزاحة بدون أي قفزة
           if (-x >= w){
             track.appendChild(first);
             x += w;
@@ -513,7 +654,6 @@ nav, .nav-links { flex-wrap: nowrap }
       }
       requestAnimationFrame(step);
 
-      // عند تغيير المقاس: نحدّث الطول و gap
       window.addEventListener('resize', () => {
         ensureLength();
         gap = getGap();
@@ -521,14 +661,4 @@ nav, .nav-links { flex-wrap: nowrap }
     })();
   </script>
 </body>
-</html>                
-
-
-
-
-
-
-
-
-
-
+</html>
