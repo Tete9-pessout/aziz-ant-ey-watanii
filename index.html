@@ -41,7 +41,7 @@
       z-index:50;
     }
 
-    /* الهيدر */
+    /* الهيدر الأساسي */
     nav{
       display:flex;
       align-items:center;
@@ -287,7 +287,13 @@
       header { backdrop-filter: saturate(160%) blur(10px) }
       nav { height: 56px }
       .brand { gap: 10px }
-      .brand img { width: 38px; height: 38px }
+
+      /* الشعار أكبر على الموبايل */
+      .brand img{
+        width: 52px;
+        height: 52px;
+      }
+
       .brand-title { font-size: 1rem }
       .sub { font-size: .95rem }
 
@@ -305,14 +311,37 @@
       .features,
       .programs { grid-template-columns: 1fr }
 
-      .manager { grid-template-columns: 1fr; text-align: center }
-      .manager img { margin-inline: auto }
+      .manager {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      /* صورة المدير أكبر ومركّزة */
+      .manager img{
+        margin-inline: auto;
+        width: 130px;
+        height: 130px;
+      }
 
       #contact .card > div { grid-template-columns: 1fr !important }
 
       .gallery-wrap { border-radius: 14px }
       .gallery-track { gap: 10px }
-      .gallery-track img { height: 110px; border-radius: 10px }
+
+      /* صور المعرض أكبر على الموبايل */
+      .gallery-track img{
+        height: 150px;
+        border-radius: 12px;
+      }
+
+      /* تكبير الأيقونات العامة إن استُخدمت */
+      .icon{
+        width: 56px;
+        height: 56px;
+      }
+      .icon svg{
+        width: 26px;
+        height: 26px;
+      }
 
       .btn, .btn.btn-outline {
         padding: 9px 14px;
@@ -320,345 +349,4 @@
         box-shadow: 0 6px 18px rgba(11,107,111,.22);
       }
 
-      .container { padding-inline: 16px }
-    }
-
-    /* هواتف صغيرة جداً (<= 400px) */
-    @media (max-width: 400px) {
-      nav { height: 52px }
-      .brand img { width: 34px; height: 34px }
-      .brand-title { font-size: .95rem }
-      .sub { font-size: .9rem }
-
-      h1 { font-size: clamp(22px, 7vw, 30px) }
-      .lead { font-size: .95rem }
-
-      .gallery-track { gap: 8px }
-      .gallery-track img { height: 96px; border-radius: 9px }
-
-      .btn, .btn.btn-outline { padding: 8px 12px; font-size: .9rem }
-    }
-
-    /* تحسين إمكانية اللمس على الشاشات اللمسية */
-    @media (hover: none) {
-      a, .btn { -webkit-tap-highlight-color: rgba(11,107,111,.15) }
-      .btn:hover { transform: none }
-    }
-
-    /* ============================
-       هيدر بسطر واحد على كل المقاسات
-       (مع تمرير أفقي للروابط عند الحاجة)
-       ============================ */
-
-    header { white-space: nowrap }
-
-    nav{
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .brand{
-      min-width: 0;
-      flex-shrink: 0;
-    }
-
-    .nav-links{
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 18px;
-      min-width: 0;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      flex-wrap: nowrap;
-    }
-    .nav-links::-webkit-scrollbar{ display:none }
-
-    .nav-links a,
-    .nav-links .btn{
-      white-space: nowrap;
-    }
-
-    /* تقليل الأحجام تدريجياً للهيدر */
-    @media (max-width: 1024px){
-      nav { gap: 10px }
-      .brand img{ width: 42px; height: 42px }
-      .brand-title{ font-size: 1rem }
-      .nav-links{ gap: 14px }
-      .nav-links a, .nav-links .btn{
-        font-size: .95rem;
-        padding: 8px 12px;
-      }
-    }
-
-    @media (max-width: 820px){
-      .brand img{ width: 38px; height: 38px }
-      .brand-title{ font-size: .95rem; letter-spacing: 0 }
-      .nav-links{ gap: 12px }
-      .nav-links a, .nav-links .btn{
-        font-size: .9rem;
-        padding: 7px 10px;
-      }
-    }
-
-    @media (max-width: 640px){
-      nav{ gap: 8px }
-      .brand img{ width: 34px; height: 34px }
-      .brand-title{ font-size: .9rem }
-      .nav-links{ gap: 10px }
-      .nav-links a, .nav-links .btn{
-        font-size: .85rem;
-        padding: 6px 8px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- رأس الصفحة -->
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">
-          <img src="oop.png" alt="شعار فريق عزيز انت يا وطني" />
-          <div>
-            <div class="brand-title">فريق عزيز انت يا وطني</div>
-            <div class="sub">فريق تطوعي مجتمعي</div>
-          </div>
-        </div>
-        <div class="nav-links">
-          <a href="#about">من نحن</a>
-          <a href="#definition">تعريف الفريق</a>
-          <a href="#programs">مجالات التطوع</a>
-          <a class="btn" href="#contact">تواصل</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- البطل -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="tag">خدمة • تعاون • أثر</span>
-        <h1>نخدم مجتمعنا بقلبٍ مفتوح وعملٍ منظم.</h1>
-        <p class="lead">
-          فريق <strong>عزيز انت يا وطني</strong> يجمع المتطوعين من مختلف الأعمار
-          ليمدوا يد العون في التعليم، والبيئة، والصحة، والإغاثة.
-          نؤمن أن الأثر الحقيقي يبدأ من مبادرات صغيرة مستمرة.
-        </p>
-      </div>
-
-      <div class="card" aria-label="صور من نشاطات الفريق">
-        <div class="gallery-wrap">
-          <div class="gallery-track">
-            <img src="bankclose.jpg" alt="حملة تنظيف" />
-            <img src="we.jpg" alt="غرس الأشجار" />
-            <img src="old.jpg" alt="توزيع طرود" />
-            <img src="congrsh.jpg" alt="توعية صحية" />
-            <img src="all.jpg" alt="ورشة رقمية" />
-            <!-- مجموعة ثانية -->
-            <img src="link.jpg" alt="حملة تنظيف" />
-            <img src="ta.png" alt="غرس الأشجار" />
-            <img src="kid.jpg" alt="توزيع طرود" />
-            <img src="me.jpg" alt="توعية صحية" />
-            <img src="hi.jpg" alt="ورشة رقمية" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- من نحن -->
-  <section id="about">
-    <div class="container">
-      <h2>من نحن</h2>
-      <p class="sub">
-        نحن مجموعة من الشباب الطموحين نتواجد في كافة محافظات المملكة الأردنية الهاشمية
-        و تأسس الفريق في عام 2022/2/2 ، ونعمل تحت مظلة حكومية ، كما نعمل على إدارة وتنفيذ
-        الأعمال التطوعية بكافة المجالات التي تشمل: الإعلام المجتمعي/تنظيم الاحداث/
-        إدارة الفعاليات/التوعية/الإرشاد/المجال الرياضي/إطلاق المبادرات الشبابية التي تشمل
-        (البيئة و الترفيهية و الثقافية و الخيرية و التدريبة) و العمل على تنفيذ برامج مشتركة
-        مع مؤسسات عامة و خاصة.
-      </p>
-      <div class="card manager">
-        <img src="hosam3.png" alt="صورة مدير الفريق" />
-        <div>
-          <h3 style="margin:0">
-            مدير الفريق: <span id="managerName">حسام المصري</span>
-          </h3>
-          <p class="sub" style="margin:.35rem 0 0">
-            ناشط مجتمعي و مؤسس و مدير عزيز انت يا وطني و سفير لدى مؤسسة ولي العهد
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- تعريف الفريق -->
-  <section id="definition">
-    <div class="container">
-      <h2>تعريف الفريق</h2>
-      <div class="card">
-        <p style="margin:0">
-          فريق <strong>عزيز انت يا وطني</strong> كيانٌ تطوعي غير ربحي يهدف إلى تعزيز
-          روح المواطنة الفاعلة من خلال مبادرات مستدامة في مجالات التعليم والبيئة والصحة
-          والإغاثة و العديد من المجالات يعمل الفريق وفق مبادئ الشفافية والعمل الجماعي
-          واحترام التنوع ويقيس أثر مشاريعه بمؤشرات واضحة يمكن للجمهور الاطلاع عليها.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- مجالات العمل -->
-  <section id="programs">
-    <div class="container">
-      <h2>مجالات التطوع</h2>
-      <p class="sub">اختر المسار الذي ينسجم مع مهاراتك ووقتك.</p>
-      <div class="programs">
-        <article class="card">
-          <h3 style="margin:0">مبادرات مدرسية </h3>
-          <ul style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>مبادرات تفاعلية للاطفال</li>
-            <li>مبادرات تنظيف واعمال تجميلية للمدارس</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3 style="margin:0">مبادرات تنوعية</h3>
-          <ul style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>مبادرات تنظيم مسرحيات</li>
-            <li>ورشات تعليمية</li>
-            <li>مبادرات خيرية</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3 style="margin:0">مبادرات اغاثية و توعية بالصحة</h3>
-          <ul style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>مبادرات فرز ملابس</li>
-            <li>مبادرات خيرية</li>
-            <li>مبادرات توعوية بالصحة</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- تواصل -->
-  <section id="contact">
-    <div class="container">
-      <h2>التواصل</h2>
-      <p class="sub">يسعدنا تواصلكم للتعاون أو الاستفسار.</p>
-
-      <div class="card">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start">
-          <div>
-            <h3 style="margin:0 0 8px">البريد الإلكتروني</h3>
-            <p style="margin:0 0 12px">
-              <a href="mailto:azizyouwatani.team@gmail.com">azizyouwatani.team@gmail.com</a>
-            </p>
-
-            <h3 style="margin:0 0 8px">الهاتف</h3>
-            <p style="margin:0 0 12px">
-              <a class="ltr" dir="ltr" href="tel:+962799073507">&lrm;+962 7 9907 3507&lrm;</a>
-            </p>
-
-            <h3 style="margin:0 0 8px">موقعنا</h3>
-            <a href="https://maps.app.goo.gl/an7qQAhbqiCGnASa6?g_st=ai">
-              الأردن-عمان-مقر عزيز انت يا وطني
-            </a>
-
-            <h3 style="margin:16px 0 8px">روابطنا</h3>
-            <ul style="margin:0 0 0 18px;color:var(--muted)">
-              <li><a href="https://www.instagram.com/aziz.ant.ya.watani/?hl=ar" rel="noopener">إنستغرام</a></li>
-              <li><a href="https://www.facebook.com/azezantyawatne/" rel="noopener">فيسبوك</a></li>
-              <li><a href="https://x.com/azezantyawatne?t=sknOWk8kq50wl-zmXUFDDA&s=09" rel="noopener">إكس</a></li>
-              <li><a href="https://www.nahno.org/ngo/%D9%81%D8%B1%D9%8A%D9%82-%D8%B9%D8%B2%D9%8A%D8%B2-%D8%A3%D9%86%D8%AA-%D9%8A%D8%A7%D9%88%D8%B7%D9%86%D9%8A-70921" rel="noopener">منصة نحن</a></li>
-            </ul>
-          </div>
-
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <h3 style="margin:0 0 8px">تواصل مباشر</h3>
-            <a class="btn" href="mailto:azizyouwatani.team@gmail.com" style="justify-content:center">إرسال بريد</a>
-            <a class="btn btn-outline" href="https://wa.me/962799073507" target="_blank" rel="noopener" style="justify-content:center">مراسلة واتساب</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container foot">
-      <div style="display:flex;align-items:center;gap:10px">
-        <img src="oop.png" alt="شعار مصغر" style="width:36px;height:36px;border-radius:50%"/>
-        <div>
-          <strong>فريق عزيز انت يا وطني</strong><br/>
-          <span class="sub">© <span id="year"></span> جميع الحقوق محفوظة.</span>
-        </div>
-      </div>
-      <div class="sub">صُمِّم بحبّ بواسطة المتطوعة تالا الناطور🤍</div>
-    </div>
-  </footer>
-
-  <script>
-    // سنة ديناميكية
-    const yearEl = document.getElementById('year');
-    if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
-
-    // حركة شريط الصور
-    (function(){
-      const wrap  = document.querySelector('.gallery-wrap');
-      const track = document.querySelector('.gallery-track');
-      if (!wrap || !track) return;
-
-      const originals = Array.from(track.children);
-
-      function ensureLength(){
-        const need = wrap.clientWidth * 2;
-        while (track.scrollWidth < need){
-          originals.forEach(el => track.appendChild(el.cloneNode(true)));
-        }
-      }
-      ensureLength();
-
-      function getGap(){
-        const s = getComputedStyle(track);
-        const g = s.gap || s.columnGap || '12px';
-        return g.endsWith('px') ? parseFloat(g) : 12;
-      }
-      let gap = getGap();
-
-      let x = 0;
-      let speed = 36;
-      let prev = performance.now();
-
-      function step(now){
-        const dt = (now - prev) / 1000;
-        prev = now;
-
-        x -= speed * dt;
-
-        const first = track.children[0];
-        if (first){
-          const w = first.offsetWidth + gap;
-          if (-x >= w){
-            track.appendChild(first);
-            x += w;
-          }
-        }
-
-        track.style.transform = `translate3d(${x}px,0,0)`;
-        requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-
-      window.addEventListener('resize', () => {
-        ensureLength();
-        gap = getGap();
-      });
-    })();
-  </script>
-</body>
-</html>
+      .container { padding-inline: 16px
